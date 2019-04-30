@@ -38,11 +38,11 @@ function shuffle(array) {
  *    + if all cards have matched, display a message with the final score (put this functionality in another function that you call from this one)
  */
 
- deck.addEventListener("click", show);
+ deck.addEventListener("click", showCard);
  document.getElementById("restart").addEventListener("click", startGame);
 
  // THIS IS THE FUNCTION that GETS CALLED WHEN A CARD IS CLICKED ON
- function show(event) {
+ function showCard(event) {
      // Abort if just the deck was clicked
      if (event.target.id === "deck") return;
 
@@ -95,6 +95,9 @@ function checkForMatch() {
     }
  }
 
+/**
+ * Hide all cards in openCards and empties the array.
+ */
 function hideAllOpenCards() {
     while (openCards.length > 0) {
         let card = openCards.pop();
