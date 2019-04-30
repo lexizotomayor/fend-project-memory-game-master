@@ -80,8 +80,8 @@ function checkForMatch() {
         const frontB = cardB.children[0].children[0];
         // True if the cards match.
         if (frontA.className === frontB.className) {
-            lock(cardA);
-            lock(cardB);
+            cardA.className = "card match";
+            cardB.className = "card match";
             numMatches++;
             if (numMatches == 8) {
                 endGame();
@@ -97,17 +97,10 @@ function checkForMatch() {
 
 function hideAllOpenCards() {
     while (openCards.length > 0) {
-        hide(openCards.pop());
+        let card = openCards.pop();
+        card.classList.remove("show");
+        card.classList.remove("open");
     }
-}
-
-function lock(card) {
-    card.className = "card match";
-}
-
-function hide(card) {
-    card.classList.remove("show");
-    card.classList.remove("open");
 }
 
 function endGame() {
