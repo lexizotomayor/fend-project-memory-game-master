@@ -26,7 +26,6 @@ function shuffle(array) {
     return array;
 }
 
-
 /*
  * set up the event listener for a card. If a card is clicked:
  *  - display the card's symbol (put this functionality in another function that you call from this one)
@@ -38,11 +37,11 @@ function shuffle(array) {
  *    + if all cards have matched, display a message with the final score (put this functionality in another function that you call from this one)
  */
 
- deck.addEventListener("click", showCard);
+ deck.addEventListener("click", onDeckOrChildClicked);
  document.getElementById("restart").addEventListener("click", startGame);
 
  // THIS IS THE FUNCTION that GETS CALLED WHEN A CARD IS CLICKED ON
- function showCard(event) {
+ function onDeckOrChildClicked(event) {
      // Abort if just the deck was clicked
      if (event.target.id === "deck") return;
 
@@ -50,22 +49,14 @@ function shuffle(array) {
 
         // event.target is the card that was clicked
         const card = event.target;
-        card.classList.add("show");
         card.classList.add("open");
    
         openCards.push(card);
    
-       /**
-        * At this point, we have two opened cards
-        * and we need to check for a match.
-        */
-        if (openCards.length > 1) {
-           checkForMatch(card, window.openCard);
-           delete window.openCard;
-        }
+        checkForMatch();
    
        numMoves++;
-       moveCounter.innerText = numMoves;
+       moveCounter.innerText = numMoves; // Moves counter
      }
  }
 
@@ -74,12 +65,16 @@ function shuffle(array) {
  */
 function checkForMatch() {
     if (openCards.length > 1) {
+        /**
+         * At this point, we have two opened cards
+         * and we need to check for a match.
+         */
         const cardA = openCards.pop();
         const cardB = openCards.pop();
         const frontA = cardA.children[0].children[0];
         const frontB = cardB.children[0].children[0];
         // True if the cards match.
-        if (frontA.className === frontB.className) {
+        if (frontA.src === frontB.src) {
             cardA.className = "card match";
             cardB.className = "card match";
             numMatches++;
@@ -90,7 +85,7 @@ function checkForMatch() {
         } else {
             openCards.push(cardA);
             openCards.push(cardB);
-            window.setTimeout(hideAllOpenCards, BAD_MATCH_DELAY_MILLISECONDS)
+            window.setTimeout(hideAllOpenCards, BAD_MATCH_DELAY_MILLISECONDS);
         }
     }
  }
@@ -101,7 +96,6 @@ function checkForMatch() {
 function hideAllOpenCards() {
     while (openCards.length > 0) {
         let card = openCards.pop();
-        card.classList.remove("show");
         card.classList.remove("open");
     }
 }
@@ -127,7 +121,7 @@ function startGame() {
         const card = document.createElement("li");
         card.className = "card";
         card.innerHTML = `<div class="card-animator">
-            <div class="${getCardFront(i)}"></div>
+            <img class="front" src="${getPngPath(i)}">
             <div class="back c-${i}"></div>
         </div>`;
         cards[i] = card;
@@ -145,27 +139,27 @@ function startGame() {
  * Takes a card index and returns an appropriate class for its front.
  * @param {*} index Index of a card.
  */
-function getCardFront(index) {
+function getPngPath(index) {
     let matchNumber = index % 8;
     switch (matchNumber) {
         case 0:
-        return 'front fa fa-diamond';
+        return '/LOGOS/1.png';
         case 1:
-        return 'front fa fa-paper-plane-o';
+        return '/LOGOS/2.png';
         case 2:
-        return 'front fa fa-anchor';
+        return '/LOGOS/3.png';
         case 3: 
-        return 'front fa fa-bolt';
+        return '/LOGOS/4.png';
         case 4:
-        return 'front fa fa-cube';
+        return '/LOGOS/5.png';
         case 5:
-        return 'front fa fa-leaf';
+        return '/LOGOS/6.png';
         case 6:
-        return 'front fa fa-bicycle';
+        return '/LOGOS/7.png';
         case 7:
-        return 'front fa fa-bomb';
+        return '/LOGOS/8.png';
         default:
-        return 'front fa fa-question-circle-o';
+        return '/LOGOS/9.png';
     }
 }
 

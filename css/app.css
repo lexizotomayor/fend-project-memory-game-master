@@ -17,8 +17,8 @@ body {
 }
 
 body {
-    background: #ffffff url('../img/geometry2.png'); /* Background pattern from Subtle Patterns */
-    font-family: 'Coda', cursive;
+    background: #ffffff url(/img/pink.jpg); /* Background pattern from Subtle Patterns */
+    font-family: 'Montserrat', sans-serif;
 }
 
 .container {
@@ -29,8 +29,8 @@ body {
 }
 
 h1 {
-    font-family: 'Open Sans', sans-serif;
-    font-weight: 300;
+    font: 900, 3em, 'Montserrat', sans-serif;
+    text-shadow: 1px 1px 1px #000;
 }
 
 /*
@@ -40,7 +40,7 @@ h1 {
 #deck {
     width: 660px;
     min-height: 680px;
-    background: linear-gradient(160deg, #02ccba 0%, #aa7ecd 100%);
+    background: #fff;
     padding: 32px;
     border-radius: 10px;
     box-shadow: 12px 15px 20px 0 rgba(46, 61, 73, 0.5);
@@ -57,7 +57,7 @@ h1 {
     width: 125px;
     background: #2e3d49;
     font-size: 0;
-    color: #ffffff;
+    color: #fff;
     border-radius: 8px;
     cursor: pointer;
     display: flex;
@@ -94,7 +94,7 @@ h1 {
     border-radius: 8px;
     height: 125px;
     width: 125px;
-    background: #aa7ecd;
+    background: pink;
 	position: absolute;
 	top: 0;
 	left: 0;
@@ -109,7 +109,9 @@ h1 {
     border-radius: 8px;
     height: 125px;
     width: 125px;
-    background: turquoise;
+    background-image: url(/img/pink.jpg);
+    border: 5px solid #fff;
+    background-size: cover;
 	position: absolute;
 	top: 0;
 	left: 0;
