@@ -86,16 +86,14 @@ h1 {
 }
 
 .card-animator {
-    height: 125px;
-    width: 125px;
     pointer-events: none;
 }
 
 .front {
     font-size: 33px;
     border-radius: 8px;
-    height: 125px;
-    width: 125px;
+    height: 100%;
+    width: 100%;
     background:#fff ;
 	position: absolute;
 	top: 0;
