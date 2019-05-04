@@ -9,12 +9,10 @@
     <link rel="stylesheet" href="css/app.css">
 </head>
 <body>
-
     <div class="container">
         <header>
             <h1>Matching Game</h1>
         </header>
-
         <section class="score-panel">
             <div>
                 <ul class="stars">
@@ -24,33 +22,25 @@
                 </ul>
                 <span id="moves">3 </span><span id="moves-text">Moves</span> 
             </div>
-            
             <span id="time">00:00</span>
-
             <div id="restart">
         		<i class="fas fa-redo"></i>
         	</div>
         </section>
-
         <ul id="deck"></ul>
-    
     </div>
-
 <div id="modal-box">
     <div class="modal">
-        <span class="button"></span>
-        <h2>Great job!</h2><br>
-        <p>You won!</p>
-        <div id="modal-time"></div>
-        <div id="modal-rate"></div>
-        <div id="modal-stars"></div>
+        <h2>Great job!</h2>
+        <div id="modal-time">00:20</div>
+        <div id="modal-moves">20</div>
+        <ul id="modal-stars">3</ul>
         <div id="modal-button">
-            <span class="modal-btn">Close</span>
-            <span class="modal-btn">Restart</span>
+            <span class="modal-btn" onclick="onModalCloseClicked()">Close</span>
+            <span class="modal-btn" onclick="onModalRestartClicked()">Restart</span>
         </div>
     </div>
 </div>
-
     <script src="js/app.js"></script>
 </body>
 </html>

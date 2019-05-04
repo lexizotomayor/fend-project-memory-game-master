@@ -111,8 +111,19 @@ function hideAllOpenCards() {
 }
 
 function endGame() {
-    
+    let modalTime = document.getElementById('modal-time');
+    modalTime.innerText = `${addLeadingZeroes(minutes)}:${addLeadingZeroes(seconds)}`;
+
+    let modalMoves = document.getElementById('modal-moves');
+    modalMoves.innerText = numMoves + " moves";
+
+    let modalStars = document.getElementById('modal-stars');
+    modalStars.innerHTML = document.querySelector('.stars').innerHTML;
+
+    let modal = document.getElementById('modal-box');
+    modal.style.display = "flex";
 }
+
 
 /*
  * Display the cards on the page
@@ -133,6 +144,7 @@ function startGame() {
         clearInterval(clock);
         clock = null;
     }
+    setStarRating();
 
     // CREATE THE CARDS
     for (let i = 0; i < 16; i++) {
@@ -182,7 +194,11 @@ function getPngPath(index) {
 }
 
 function setStarRating() {
-    if (numMoves == 20) {
+    if (numMoves == 0) {
+        stars[2].className = "star fa fa-star";
+        stars[1].className = "star fa fa-star";
+        stars[0].className = "star fa fa-star";
+    } else if (numMoves == 20) {
         //show two stars
         stars[2].className = "star far fa-star";
     } else if (numMoves == 30 ) {
@@ -206,6 +222,17 @@ function addLeadingZeroes(num) {
         numString = "0" + numString;
     }
     return numString;
+}
+
+function onModalCloseClicked() {
+    let modal = document.getElementById('modal-box');
+    modal.style.display = "none";
+}
+
+function onModalRestartClicked() {
+    let modal = document.getElementById('modal-box');
+    modal.style.display = "none";
+    startGame();
 }
 
 startGame();

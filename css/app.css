@@ -17,7 +17,7 @@ body {
 }
 
 body {
-    background: #ffffff url(/img/pink.jpg); /* Background pattern from Subtle Patterns */
+    background: #fff url(/img/pink.jpg); /* Background pattern from Subtle Patterns */
     background-size: cover;
     background-position: center;
     font-family: 'Montserrat', sans-serif;
@@ -75,7 +75,6 @@ h1 {
 }
 
 .card.open {
-    background: #02b3e4;
     cursor: default;
     pointer-events: none;
     transform: rotateY(180deg);
@@ -83,7 +82,6 @@ h1 {
 
 .card.match {
     cursor: default;
-    background: #02ccba;
     font-size: 33px;
     pointer-events: none;
     transform: rotateY(180deg);
@@ -175,7 +173,7 @@ h1 {
     background: rgba(0,0,0,0.25);
     top: 0;
     left: 0;
-    display: flex;
+    display: none;
     justify-content: center;
     align-items: center;
     flex-direction: column;
@@ -207,4 +205,16 @@ h1 {
     background: pink;
     padding: 1em;
     border-radius: 8px;
+}
+
+#modal-stars {
+    margin: 0;
+    padding: 0;
+    display: inline-block;
+    margin: 0 5px 0 0;
+}
+
+#modal-stars li {
+    list-style: none;
+    display: inline-block;
 }
