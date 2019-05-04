@@ -9,7 +9,12 @@ let cards = [];
 let moveCounter = document.getElementById("moves");
 let numMoves;
 let numMatches;
-let openCards = [];
+let openCards;
+let stars = document.getElementsByClassName('star');
+let time = document.getElementById('time');
+let minutes;
+let seconds;
+var clock;
 
 // Shuffle function from http://stackoverflow.com/a/2450976
 function shuffle(array) {
@@ -45,6 +50,10 @@ function shuffle(array) {
      // Abort if just the deck was clicked
      if (event.target.id === "deck") return;
 
+    if (!clock) {
+        clock = setInterval(setTime, 1000);
+    }
+
      if (openCards.length < 2) {
 
         // event.target is the card that was clicked
@@ -54,9 +63,6 @@ function shuffle(array) {
         openCards.push(card);
    
         checkForMatch();
-   
-       numMoves++;
-       moveCounter.innerText = numMoves; // Moves counter
      }
  }
 
@@ -69,6 +75,10 @@ function checkForMatch() {
          * At this point, we have two opened cards
          * and we need to check for a match.
          */
+        numMoves++;
+        moveCounter.innerText = numMoves; // Moves counter
+        setStarRating();
+
         const cardA = openCards.pop();
         const cardB = openCards.pop();
         const frontA = cardA.children[0].children[0];
@@ -112,9 +122,17 @@ function endGame() {
  */
 function startGame() {
     // Initialize values
+    openCards = [];
     numMoves = 0;
     numMatches = 0;
     moveCounter.innerText = numMoves;
+    minutes = 0;
+    seconds = 0;
+    time.innerText = "00:00";
+    if (clock) {
+        clearInterval(clock);
+        clock = null;
+    }
 
     // CREATE THE CARDS
     for (let i = 0; i < 16; i++) {
@@ -161,6 +179,33 @@ function getPngPath(index) {
         default:
         return '/LOGOS/9.png';
     }
+}
+
+function setStarRating() {
+    if (numMoves == 20) {
+        //show two stars
+        stars[2].className = "star far fa-star";
+    } else if (numMoves == 30 ) {
+        //show 1 star
+        stars[1].className = "star far fa-star";
+    }
+}
+
+function setTime() {
+    seconds++;
+    if (seconds == 60) {
+        minutes++;
+        seconds = 0;
+    }
+    time.innerText = `${addLeadingZeroes(minutes)}:${addLeadingZeroes(seconds)}`;
+}
+
+function addLeadingZeroes(num) {
+    var numString = num.toString();
+    while (numString.length < 2) {
+        numString = "0" + numString;
+    }
+    return numString;
 }
 
 startGame();
