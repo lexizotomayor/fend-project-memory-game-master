@@ -107,8 +107,8 @@ h1 {
 
 .back {
     border-radius: 8px;
-    height: 125px;
-    width: 125px;
+    height: 100%;
+    width: 100%;
     background-image: url(/img/pink.jpg);
     border: 5px solid #fff;
     background-size: cover;
