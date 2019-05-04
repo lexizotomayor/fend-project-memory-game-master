@@ -111,7 +111,7 @@ function hideAllOpenCards() {
 }
 
 function endGame() {
-    // TODO show the final score 
+    
 }
 
 /*
