@@ -40,8 +40,6 @@ h1 {
  */
 
 #deck {
-    width: 660px;
-    min-height: 680px;
     background: slategrey;
     padding: 32px;
     border-radius: 10px;
@@ -51,15 +49,15 @@ h1 {
     justify-content: space-between;
     align-items: center;*/
     display: grid;
-    grid-template-columns: min-content min-content min-content min-content;
-    grid-gap: 2em;
+    grid-template-columns: auto auto auto auto;
+    grid-gap: 2vmin;
     margin: 0 0 3em;
     perspective: 1000px; /* */
 }
 
 .card {
-    height: 125px;
-    width: 125px;
+    height: 12vmin;
+    width: 12vmin;
     background: #2e3d49;
     font-size: 0;
     color: #fff;
