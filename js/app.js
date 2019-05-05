@@ -59,9 +59,7 @@ function shuffle(array) {
         // event.target is the card that was clicked
         const card = event.target;
         card.classList.add("open");
-   
         openCards.push(card);
-   
         checkForMatch();
      }
  }
@@ -178,7 +176,7 @@ function getPngPath(index) {
         return '/LOGOS/2.png';
         case 2:
         return '/LOGOS/3.png';
-        case 3: 
+        case 3:
         return '/LOGOS/4.png';
         case 4:
         return '/LOGOS/5.png';
