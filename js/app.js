@@ -120,6 +120,8 @@ function endGame() {
 
     let modal = document.getElementById('modal-box');
     modal.style.display = "flex";
+
+    window.clearInterval(clock);
 }
 
 
