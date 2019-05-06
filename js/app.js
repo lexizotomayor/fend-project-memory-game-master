@@ -171,23 +171,23 @@ function getPngPath(index) {
     let matchNumber = index % 8;
     switch (matchNumber) {
         case 0:
-        return '/LOGOS/1.png';
+        return 'LOGOS/1.png';
         case 1:
-        return '/LOGOS/2.png';
+        return 'LOGOS/2.png';
         case 2:
-        return '/LOGOS/3.png';
+        return 'LOGOS/3.png';
         case 3:
-        return '/LOGOS/4.png';
+        return 'LOGOS/4.png';
         case 4:
-        return '/LOGOS/5.png';
+        return 'LOGOS/5.png';
         case 5:
-        return '/LOGOS/6.png';
+        return 'LOGOS/6.png';
         case 6:
-        return '/LOGOS/7.png';
+        return 'LOGOS/7.png';
         case 7:
-        return '/LOGOS/8.png';
+        return 'LOGOS/8.png';
         default:
-        return '/LOGOS/9.png';
+        return 'LOGOS/9.png';
     }
 }
 

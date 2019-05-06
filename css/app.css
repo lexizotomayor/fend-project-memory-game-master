@@ -17,7 +17,7 @@ body {
 }
 
 body {
-    background: #fff url(/img/pink.jpg); /* Background pattern from Subtle Patterns */
+    background: #fff url(../img/pink.jpg); /* Background pattern from Subtle Patterns */
     background-size: cover;
     background-position: center;
     font-family: 'Montserrat', sans-serif;
@@ -111,7 +111,7 @@ h1 {
     border-radius: 8px;
     height: 100%;
     width: 100%;
-    background-image: url(/img/pink.jpg);
+    background-image: url(../img/pink.jpg);
     border: 5px solid #fff;
     background-size: cover;
 	position: absolute;
